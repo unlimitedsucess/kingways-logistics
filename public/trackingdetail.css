@@ -294,6 +294,7 @@ th {
   line-height: 19.36px;
   text-align: left;
   color: #000000;
+  
 }
 th,
 td {
@@ -303,6 +304,7 @@ td {
   align-content: center;
   height: fit-content;
   text-align: left;
+  text-wrap: nowrap;
 }
 table h3,
 p {
