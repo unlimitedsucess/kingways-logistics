@@ -471,7 +471,7 @@ option {
   /* left: 50%;
   transform: translateX(-50%); */
   right: 0;
-  right: 250px;
+  right: 290px;
   border: 20px solid #f6602d;
   background-color: #dcdcdc;
   padding: 48px;
@@ -499,7 +499,7 @@ option {
   text-align: left;
   padding-top: 12px;
 }
-#create-btn {
+#createbtn {
   width: 150px;
   height: 32px;
   padding: 4px;
@@ -514,6 +514,7 @@ option {
   line-height: 24.2px;
   text-align: center;
   color: #000000;
+  cursor: pointer;
 }
 #cancel-btn {
   width: 150px;
