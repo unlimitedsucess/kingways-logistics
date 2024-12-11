@@ -6,6 +6,7 @@ const updateManu = document.querySelector(".update-screen");
 const createBtn = document.getElementById("createbtn");
 const newConsignment = document.querySelector(".createShipment");
 const createConsignmentBtn = document.getElementById("create-btn");
+const deletePackage = document.querySelector(".delete-section")
 const tableRow = document.getElementsByTagName("tr")
 console.log (tableRow)
 
@@ -19,6 +20,13 @@ updateStatus.forEach((btn) => {
 createBtn.addEventListener("click", function () {
   newConsignment.classList.toggle("active3");
 });
+
+deleteStatus.forEach ((deletebtn) =>{
+  deletebtn.addEventListener("click", function(){
+    deletePackage.classList.toggle("active5")
+  });
+});
+
 
 const newTable = [];
 

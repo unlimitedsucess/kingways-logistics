@@ -252,7 +252,7 @@ table {
   border-radius: 6px;
   background: #dcdcdc;
   border: transparent;
-  cursor: pointer
+  cursor: pointer;
 }
 th,
 td {
@@ -289,7 +289,6 @@ th {
   text-align: left;
   padding: 0;
   margin: 0;
- 
 }
 .update-screen {
   width: 400px;
@@ -414,6 +413,9 @@ option {
   align-content: center;
   align-items: center;
 }
+.delete-btn{
+  cursor: pointer;
+}
 .update-cancel-btn {
   padding: 0;
   margin: 0;
@@ -476,7 +478,7 @@ option {
   background-color: #dcdcdc;
   padding: 48px;
   box-sizing: border-box;
-    display: none;
+  display: none;
 }
 .createShipment.active3 {
   display: block;
@@ -531,55 +533,61 @@ option {
   text-align: center;
   color: #000000;
 }
-th{
+.delete-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  right: 150px;
+  top: 250px;
+  display: none;
+  z-index: 9999999999999999999999999999999999;
+}
+.delete-section.active5{
+  display: block;
+}
+.delete-section p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  background-color: white;
+  padding: 8px;
+  gap: 6px;
+  border-radius: 8px;
+}
+.delete-section div {
+  background-color: #ffffff;
+  width: 88px;
+  padding: 8px;
+  gap: 6px;
+  border-radius: 8px;
+  opacity: 0px;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  margin-top: 20px;
+}
+.delete-section button {
+  width: 36px;
+  height: 27px;
+  gap: 10px;
+  border-radius: 6px;
+  opacity: 0px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #000000;
+  border: 1px solid #D4D4D4
+  
+}
+.cancel-delete{
+  border: 1px solid #D4D4D4;
+  background-color: transparent;
+}
+th {
   height: fit-content;
 }
-/* @media only screen and (min-width: 280px) and (max-width: 1200px) {
-  body {
-    width: 100%;
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-  * {
-    padding: 0;
-    margin: 0;
-    border: 0;
-  }
-  .section1 {
-    width: 100%;
-    height: fit-content;
-    padding: 0;
-    margin: 0;
-    padding: 10px;
-  }
-  .oder-record {
-    flex-direction: column;
-    background-color: #002cdb;
-    padding: 0;
-  }
-  .orders {
-    /* width: 80%; */
-  }
-  /* table {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    padding: 0;
-  }
-  .title {
-    top: 0;
-    padding: 0;
-    margin-top: 30px;
-    
-  }
-  .table-container{
-    height: 500px;
-    width: 100%;
-  }
-  tr{
-    width: 100%;
-    overflow: hidden;
-    overflow-x: scroll;
-  } */
-} */
