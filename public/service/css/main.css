@@ -150,6 +150,7 @@ h6,
 .img-banner{
     min-height: 370px;
 }
+
 @media (min-width: 1200px) {
   .img-banner{
       /*min-height: 400px;*/

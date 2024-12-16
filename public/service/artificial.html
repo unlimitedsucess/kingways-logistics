@@ -37,6 +37,7 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../translator.css">
 
     <style>
         .required{
@@ -173,7 +174,7 @@
                         <!-- brand logo -->
                         <div class="header__logo top-logo">
                             <a href="../index.htmlS">
-                                <img src="../images/Logo 2.svg" aria-label="Gavice Logo" class="img-fluid header-logo-img" alt="">
+                                <img src="../images/Logo 2.svg" aria-label="Kingsway Logo" class="img-fluid header-logo-img" alt="">
                             </a>
                         </div>
 
@@ -227,18 +228,33 @@
 
                                 <!-- Header Social Networks -->
                                 <div class="header-social-networks style-icons">
-                                    <div class="inner">
-                                        <a class=" social-link hint--black hint--bottom-left" aria-label="Twitter" href="#" data-hover="Twitter" target="_blank">
-                                            <i class="social-icon fab fa-twitter"></i>
-                                        </a>
-                                        <a class=" social-link hint--black hint--bottom-left" aria-label="Facebook" href="#" data-hover="Facebook" target="_blank">
-                                            <i class="social-icon fab fa-facebook-f"></i>
-                                        </a>
-                                        <a class=" social-link hint--black hint--bottom-left" aria-label="Instagram" href="#" data-hover="Instagram" target="_blank">
-                                            <i class="social-icon fab fa-instagram"></i>
-                                        </a>
-                                       
-                                    </div>
+                                    <!DOCTYPE html>
+                                    <html lang="en">
+                                    <head>
+                                        <meta charset="UTF-8">
+                                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                        <title>Language Translator</title>
+                                        <link rel="stylesheet" href="style.css">
+                                    </head>
+                                    <body>
+                                        <div class="container" style="background-color: ; position: fixed; right: 50px; width: fit-content; z-index: 999999999999999999999999999999999999999999999999999999999999;">
+                                            <div class="language-selector">
+                                                <select id="language-select">
+                                                    <option value="en">English</option>
+                                                    <option value="es">Spanish</option>
+                                                    <option value="fr">French</option>
+                                                    <option value="de">German</option>
+                                                    <option value="it">Italian</option>
+                                                    <option value="pt">Portuguese</option>
+                                                    <option value="zh-CN">Chinese (Simplified)</option>
+                                                    <option value="ja">Japanese</option>
+                                                    <option value="ko">Korean</option>
+                                                </select>
+                                            </div>
+                                            <div class="translation-container">
+                                                <p id="translation-text"></p>
+                                            </div>
+                                        </div>
                                 </div>
 
                             </div>
@@ -434,10 +450,6 @@
                  </div>
                  <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
                      <div class="footer-widget__title section-space--mb_50"></div>
-                     <ul class="footer-widget__list">
-                         <li><a href="#" class="image_btn" aria-label="Google play Button"><img class="img-fluid" src="../..webp" alt=""></a></li>
-                         <li><a href="#" class="image_btn" aria-label="App Store Button"><img class="img-fluid" src="../images/.-store.webp" alt=""></a></li>
-                     </ul>
                  </div>
              </div>
          </div>
@@ -561,6 +573,7 @@
 <!-- Main JS -->
 <script src="javascript/main.js"></script>
 <script src="javascript/script.js"></script>
+<script src="../script.jS"></script>
  <script>
      function submitForm() {
          // Check if any of the input fields are empty
