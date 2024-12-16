@@ -591,3 +591,67 @@ option {
 th {
   height: fit-content;
 }
+@media only screen and (min-width: 280px) and (max-width: 1200px) {
+  * {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  body {
+    width: 100%;
+  }
+  .section1{
+    width: 100%;
+    padding: 0;
+    padding: 20px;
+  }
+  .oder-record{
+    flex-direction: column ;
+    width: 100%;
+    justify-content: center;
+  }
+  .create-container p{
+    font-size: 14px;
+    display: none;
+  }
+  #createbtn{
+    width: fit-content;
+
+  }
+  tr{
+    width: 100%;
+    gap: 10px;
+
+  }
+  td, th{
+    padding: 15px;
+  }
+
+  .title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    justify-content: space-between;
+    
+  }
+  .title h3{
+    font-size: 14px;
+  }
+  .create-container{
+    flex-direction: column;
+    width: 50px;
+    gap: 5px;
+  
+  }
+  .table-container{
+    width: 100%;
+    overflow-x: hidden;
+    overflow: scroll;
+  }
+  #createbtn img{
+    width: 18px;
+    height: 18px;
+  }
+}
