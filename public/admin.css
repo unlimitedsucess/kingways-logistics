@@ -438,7 +438,7 @@ option {
 }
 .update-screen {
   width: 400px;
-  height: 450px;
+  height: 490px;
   border-radius: 24px;
   position: absolute;
   top: 0;
@@ -464,7 +464,7 @@ option {
 }
 .createShipment {
   width: 946px;
-  height: 539px;
+  height: 570px;
   border-radius: 24px;
   position: absolute;
   top: 0;
@@ -665,7 +665,7 @@ th {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 700px;
+    height: 750px;
   }
   .update-screen {
     width: 90%;
