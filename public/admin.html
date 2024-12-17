@@ -646,7 +646,7 @@
           <h1>Create consignment parcel</h1>
           <form action="">
             <div class="form-flex">
-              <div style="display: flex; flex-direction: column">
+              <div class="innerflex2" style="display: flex; flex-direction: column">
                 <label for="senderName-inpute">Sender name</label>
                 <input
                   name="senderName-inpute"
@@ -671,7 +671,7 @@
                 />
               </div>
               <hr  style="width: 2px; height: 308px;" />
-              <div style="display: flex; flex-direction: column; gap: 0;">
+              <div class="innerflex2" style="display: flex; flex-direction: column; gap: 0;">
                 <label for="recieverName-input">Receivers name</label>
                 <input name="recieverName-input" type="text" id="recieverName-input"/>
                 <label for="recieverEmail-input">Receivers email</label>
@@ -697,7 +697,7 @@
           <h1>Update tracking message</h1>
           <form action="" >
             <div class="form-flex">
-              <div style="display: flex; flex-direction: column">
+              <div class="innerflex"  style="display: flex; flex-direction: column">
                 <label for="recievName">Receivers name</label>
                 <input
                   name="recievName"
@@ -716,7 +716,7 @@
                 />
               </div>
               <hr  style="width: 2px; height: 120px;" />
-              <div style="display: flex; flex-direction: column; gap: 0;">
+              <div class="innerflex"  style="display: flex; flex-direction: column; gap: 0;">
                 <label for="senderName">Sender name</label>
                 <input name="senderName" type="text" id="senderName"/>
                 <label for="email">Email</label>
@@ -731,7 +731,7 @@
               </div>
             </div>
             <div class="form-flex2";>
-              <div style="display: flex; flex-direction: column; height: fit-content; padding: 0; margin: 0;">
+              <div class="innerflex" style="display: flex; flex-direction: column; height: fit-content; padding: 0; margin: 0;">
                 <label for="currentLocation">Current location</label>
                 <input
                   name="currentLocation"
@@ -755,14 +755,14 @@
                 />
               </div>
               <hr style="width: 2px; height: 130px;" />
-              <div style="display: flex; flex-direction: column;">
+              <div class="innerflex"  style="display: flex; flex-direction: column;">
                 <label for="orderId">Order ID</label>
                 <input name="orderId" type="text" id="orderId" required />
                 <label for="statue">Status</label>
                 <select name="statue" id="statue">
                   <option value="">Ongoing</option>
                   <option value="">Pending</option>
-                  <option value="">arri</option>
+                  <option value="">arrived</option>
                 </select>
                 <label for="freightType">Freight type</label>
                 <select name="freightType" id="freightType">

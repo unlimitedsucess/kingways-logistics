@@ -260,16 +260,5 @@ a span:nth-child(4) {
     display: flex;
     justify-content: center;
   }
-  form{
-    width: 80%;
-    padding: 20px;
-    justify-content: center;
-
-  }
-  .user-box{
-    justify-content: center;
-    /* display: flex;
-    flex-direction: column-reverse; */
-  }
-
+  
 }
