@@ -158,7 +158,7 @@ nav {
 }
 
 .section1 {
-  width: 1261px;
+  width: 90%;
   height: fit-content;
   top: 31px;
   left: 89px;
@@ -305,6 +305,7 @@ td {
   height: fit-content;
   text-align: left;
   text-wrap: nowrap;
+  padding-right: 30px;
 }
 table h3,
 p {
@@ -445,7 +446,7 @@ tr {
     margin: 0;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
@@ -618,18 +619,12 @@ tr {
   td.reciever-details{
     padding: 0;
   }
-  th{
+  th, td{
     padding: 0;
     width: fit-content;
     font-size: 14px;
     padding-right: 20px;
     text-wrap: nowrap;
-  }
-  td{
-    text-align: left;
-    padding-left: 0;
-    padding-right: 0;
-    padding: 0;
   }
   .table-container{
     width: 100%;

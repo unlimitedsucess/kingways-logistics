@@ -18,44 +18,108 @@
                    </div>
                     <h2>Welcome back!</h2>
                     <p>Please enter your details</p>
-                    <form action="" method="post">
+                    <form id="login-form">
                         <div class="user-box">
-                                <input type="text" name="" required="" />
-                                <label>Username</label>
-                              </div>
-                              <div class="user-box">
-                                <input type="password" name="" id="password" required="" />
-                                <label>Password</label>
-                                <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
-                              </div>
-                              <a href="#">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                Login
-                              </a>
-                            </form>
-                          </div>
-            </div>
+                            <input type="text" id="username" required/>
+                            <label>Username</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="password" id="password" required />
+                            <label>Password</label>
+                            <span class="password-toggle-icon" style="cursor: pointer;">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <button id="adminlogin" type="submit">Login</button> <!-- Change this to button to properly submit -->
+                    </form>
+                </div>
             </div>
         </section>
     </main>
+    
     <script>
+        // Toggle password visibility
         const passwordField = document.getElementById("password");
-const togglePassword = document.querySelector(".password-toggle-icon i");
+        const togglePassword = document.querySelector(".password-toggle-icon i");
 
-togglePassword.addEventListener("click", function () {
-  if (passwordField.type === "password") {
-    passwordField.type = "text";
-    togglePassword.classList.remove("fa-eye");
-    togglePassword.classList.add("fa-eye-slash");
-  } else {
-    passwordField.type = "password";
-    togglePassword.classList.remove("fa-eye-slash");
-    togglePassword.classList.add("fa-eye");
-  }
-});
+        togglePassword.addEventListener("click", function () {
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+            }
+        });
+
+        // Handle form submission and login API call
+        document.getElementById('login-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Validate the inputs before making the API call
+            if (!username || !password) {
+                alert("Please enter both username and password.");
+                return; // Stop further execution
+            }
+
+            // Call the adminLogin function with the entered username and password
+            await adminLogin(username, password);
+        })
+
+        // Admin login function
+        async function adminLogin(username, password) {
+            const apiUrl = 'https://kingsway-backend.onrender.com/api/v1/admin/signin';
+console.log("login");
+document.getElementById("adminlogin").innerHTML = "Please wait..."
+document.getElementById("adminlogin").disabled = true
+            const loginData = {
+                userName: username,  // Send the entered username
+                password: password,  // Send the entered password
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(loginData),
+                });
+                console.log( response.status)
+                const data = await response.json();
+                console.log(data)
+                if (!response.ok) {
+                    throw new Error('Login failed');
+                }
+
+                console.log('Login successful:', data.data.token);
+
+                // Optionally store the token or user info in localStorage
+                localStorage.setItem('authToken', data.data.token);  // Example of storing a token
+
+                // Redirect to the admin dashboard (optional)
+                 window.location.href = '/admin.html'; // Redirect after successful login
+
+                return data;
+            } catch (error) {
+                if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+                            // This error is usually caused by network issues
+                            console.error("Network error: Failed to fetch. Please check your internet connection.");
+                            alert("Network error: Please check your internet connection.")
+                        } else {
+                console.error('Error during login:', error);
+                alert(`${error} | Login failed. Please check your credentials.`); }
+            } finally {
+                document.getElementById("adminlogin").innerHTML = "Login"
+document.getElementById("adminlogin").disabled = false
+            }
+        }
     </script>
 </body>
 </html>
+ 

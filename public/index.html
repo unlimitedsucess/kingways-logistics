@@ -1489,6 +1489,17 @@
      }
  </script>
 
+ <script>
+     document.getElementById("track_btn").addEventListener("click", async () => {
+        const trackingId = document.getElementById("tracking_id").value;
+        if (trackingId === '') {
+            alert('Tracking Number not given');
+            return;
+        }
+        window.location.href = `/trackingdetail.html#${trackingId}`; 
+     })    
+ </script>
+
  </body>
 
  </html>

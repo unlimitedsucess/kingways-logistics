@@ -440,86 +440,93 @@
       </div>
       <section class="section1">
         <div class="section11">
-          <h4 style="padding-bottom: 10px;">Hello, Mac Donald</h1>
+          <h4 style="padding-bottom: 20px;" id="greeting">Hello, Mac Donald</h4> <!-- Fixed a mismatch with closing tag -->
           <div class="title" style="margin-top: 0px; padding-bottom: 20px;">
             <h3>Your parcel information</h3>
-            <p>Todays date 29/03/2024</p>
+            <p id="current-date"></p>
           </div>
         </div>
+      
         <div class="table-container">
           <table>
             <tr class="table-container2" style="height: 40px;">
-              <th>Receivers Name / Email</th>
+              <th>Receiver's Name / Email</th>
               <th>Freight Date</th>
               <th class="orderId">Order ID</th>
-              <th>Senders Name / Email</th>
+              <th>Sender's Name / Email</th>
               <th>Arrival Date</th>
-              <th style="padding-right: 20px;">Weight of parcel(Kg)</th>
+              <th style="padding-right: 20px;">Weight of Parcel (Kg)</th> <!-- Added weight column -->
               <th>Designation</th>
             </tr>
             <tr>
               <td class="reciever-details">
-                <h3>Mac Donald</h3>
-                <p>Macdonald@gmail.com</p>
+                <h3 id="recivername"></h3>
+                <p id="receiveremail2"></p>
               </td>
-              <td class="date-input">13/01/2024</td>
-              <td class="tracking-id">AB11180084576US</td>
+              <td class="date-input" id="created-date"></td>
+              <td class="tracking-id" id="uniqueid"></td>
               <td class="sender-details">
-                <h3>David Tyler</h3>
-                <p>Davidtyler234@gmail.com</p>
+                <h3 id="sendername"></h3>
+                <p class="senderemail" id="senderemail2"></p>
               </td>
-              <td class="arrive-date-input">12/04/2024</td>
-              <td class="status-update">634</td>
-              <td>Saskatwoon, Canada</td>
+              <td class="arrive-date-input" id="arrival-date2"></td>
+              <td class="status-update" id="status-new"></td>
+              <td id="designation-id"></td>
             </tr>
           </table>
         </div>
-        <div class=" detailed-screen">
+      
+        <div class="detailed-screen">
           <div class="lastLocation title-bar">
-           <div class="outer-container">
-            <h3>Last location</h3>
-           </div>
-            <p class="user-output">USA</p>
+            <div class="outer-container">
+              <h3>Last Location</h3>
+            </div>
+            <p class="user-output" id="last-locate">USA</p>
           </div>
+      
           <div class="currentLocation title-bar">
             <div class="outer-container">
-              <h3>Current location</h3>
+              <h3>Current Location</h3>
             </div>
-            <p class="user-output">Canada</p>
+            <p class="user-output" id="current-locate"></p>
           </div>
+      
           <div class="distance title-bar">
-           <div class="outer-container">
-            <h3>Remaining distance in miles</h3>
-           </div>
-            <p class="user-output">3810 (M)</p>
+            <div class="outer-container">
+              <h3>Remaining Distance in Miles</h3>
+            </div>
+            <p class="user-output" id="miles">3810 (M)</p>
           </div>
+      
           <div class="Freight-type title-bar">
             <div class="outer-container">
-              <h3>Freight type</h3>
+              <h3>Freight Type</h3>
             </div>
-            <p class="user-output">Air freight</p>
+            <p class="user-output" id="typeof-frieght">Air freight</p>
           </div>
+      
           <div class="courier-msg title-bar">
-           <div class="outer-container">
-            <h3>Courier's message</h3>
-           </div>
-            <p class="user-output">Good condition</p>
+            <div class="outer-container">
+              <h3>Courier's Message</h3>
+            </div>
+            <p class="user-output" id="current-id">Good condition</p>
           </div>
         </div>
-        <!-- <div style="padding-top: 40px;" class="col-lg-5 pb-4 pb-lg-0">
-          <div class="bg-primary text-dark text-center p-4">
-              <h4 style="font-size: 14px;" class="m-0"><i class="fa-solid fa-map-marker-alt text-white mr-2"></i>700 NE 1st Ave, Miami, FL 33132. United states Of America.</h4>
-          </div>
-          <iframe style="width: 1144px; height: 470px;"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-              frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-      </div> -->
-      <div id="map-control" style="padding-top: 20px;">
-        <div class="mapswrapper">
-          <h1 class="map-title">Current location</h1>
-          <iframe width="100%" height="450" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=miami&zoom=10&maptype=roadmap"></iframe><a href="https://www.fluxaiimagegenerator.net">ai image</a><style>.mapswrapper{background:#fff;position:relative}.mapswrapper iframe{border:0;position:relative;z-index:2}.mapswrapper a{color:rgba(0,0,0,0);position:absolute;left:0;top:0;z-index:0}</style></div>
-      </div>
+      
+        <div id="map-control" style="padding-top: 20px;">
+          <div class="mapswrapper">
+            <h1 class="map-title">Current location</h1>
+            <iframe 
+                id="map-iframe" 
+                width="100%" 
+                height="450" 
+                loading="lazy" 
+                allowfullscreen 
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=miami&zoom=10&maptype=roadmap">
+            </iframe>
+        </div>
       </section>
+      
     <!--====================  footer area ====================-->
  <div class="footer-area-wrapper bg-gray">
   <div class="footer-area section-space--ptb_80">
@@ -698,6 +705,26 @@
 <script src="service/javascript/main.js"></script>
 <script src="service/javascript/script.js"></script>
 <script>
+
+// Function to format the date as DD/MM/YYYY
+function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // months are 0-indexed
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+// Get the current date
+const currentDate = new Date();
+
+// Get the paragraph element where the date will be displayed
+const dateParagraph = document.getElementById('current-date');
+
+// Set the text content to the formatted date
+dateParagraph.textContent = `Today's date: ${formatDate(currentDate)}`;
+
+
+
   function submitForm() {
       // Check if any of the input fields are empty
       if ($('#kingsway-form input[name="name"]').val() === "" || $('#kingsway-form input[name="email"]').val() === "" || $('#kingsway-form textarea[name="message"]').val() === "") {
@@ -762,68 +789,237 @@
 </script>
 
 <script>
-  function submitContact() {
-      // Check if any of the input fields are empty
-      if ($('#contact-form input[name="name"]').val() === "" || $('#contact-form input[name="email"]').val() === "" || $('#contact-form textarea[name="message"]').val() === "" || $('#contact-form textarea[name="subject"]').val() === "") {
-          //   alert("Incomplete form");
-          $.toast({
-              text: '<h6 style="color: #fff; font-size: 13px;"><i class="fa-solid fa-exclamation-circle "></i> Incomplete form</h6>',
-              showHideTransition: 'slide',
-              bgColor: '#b92020',
-              textColor: '#eee',
-              allowToastClose: false,
-              hideAfter: 5000,
-              stack: 15,
-              textAlign: 'left',
-              position: 'top-right'
-          });
-          return;
-      }
+//    document.addEventListener("DOMContentLoaded", async function () {
+//     // Extract the value after the '#' from the URL
+//     const trackingId = window.location.hash.slice(1); // .slice(1) to remove the '#' symbol
+//     console.log("Tracking ID:", trackingId);
 
-      var formData = $('#contact-form').serialize();
-      $.ajax({
-          method: 'POST',
-          url: 'https://formsubmit.co/cdc67636476ffc35e76fb9e49d8d722a',
-          data: formData,
-          beforeSend: function(){$(".lbtn").show(); $(".nlbtn").hide();},
-          success: function(data) {
-              console.log(data);
-              //   alert('Form submitted successfully!');
-              setInterval(function() {$(".nlbtn").show(); $(".lbtn").hide(); },1500);
-              $.toast({
-                  text: '<h6 style="color: #fff;"><i class="fa-solid fa-check "></i> Successful</h6>',
-                  showHideTransition: 'slide',
-                  bgColor: 'green',
-                  textColor: '#eee',
-                  allowToastClose: false,
-                  hideAfter: 5000,
-                  stack: 5,
-                  textAlign: 'left',
-                  position: 'top-right'
-              });
+//     // HTML element selectors for updating with parcel data
+//     const receiverNameElement = document.getElementById("recivername");
+//     const receiverEmailElement = document.getElementById("receiveremail");
+//     const createdDateElement = document.getElementById("created-date");
+//     const uniqueIdElement = document.getElementById("uniqueid");
+//     const senderNameElement = document.getElementById("sendername");
+//     const senderEmailElement = document.getElementById("senderemail");
+//     const arrivalDateElement = document.getElementById("arrival-date2");
+//     const statusElement = document.getElementById("status-new");
+//     const designationElement = document.getElementById("designation-id");
+//     const lastLocateElement = document.getElementById("last-locate");
+//     const currentLocateElement = document.getElementById("current-locate");
+//     const milesElement = document.getElementById("miles");
+//     const typeOfFreightElement = document.getElementById("typeof-frieght");
+//     const currentIdElement = document.getElementById("current-id");
+
+//     // If a trackingId is provided in the URL
+//     if (trackingId) {
+//         try {
+//             // Define the URL for the API endpoint
+//             const url = `https://kingsway-backend.onrender.com/api/v1/customer/parcel/${trackingId}`;
+
+//             // Make the HTTP request using async/await
+//             const response = await fetch(url);
+
+//             // Check if the response is ok (status 200)
+//             if (!response.ok) {
+//                 throw new Error("Network response was not ok");
+//             }
+
+//             // Parse the JSON response
+//             const data = await response.json();
+//             console.log("Response data:", data);
+
+//             // Assuming `data` contains the parcel information
+//             const parcel = data.data; // Adjust this based on the actual API response structure
+
+//             // Update the HTML elements with data from the API response
+//             receiverNameElement.innerHTML = parcel.receiverName || "N/A";
+//             receiverEmailElement.innerHTML = parcel.receiverEmail || "N/A";
+//             createdDateElement.innerHTML = parcel.freightDate  || "N/A";
+//             uniqueIdElement.innerHTML = parcel.orderId  || "N/A";
+//             senderNameElement.innerHTML = parcel.senderName || "N/A";
+//             senderEmailElement.innerHTML = parcel.senderEmail || "N/A";
+//             arrivalDateElement.innerHTML = parcel.arrivalDate || "N/A";
+//             statusElement.innerHTML = parcel. status || "N/A";
+//             designationElement.innerHTML = parcel.parcelsDesignation            || "N/A";
+//             lastLocateElement.innerHTML = parcel.lastLocation || "N/A";
+//             currentLocateElement.innerHTML = parcel.currentLocate || "N/A";
+//             milesElement.innerHTML = parcel.miles || "N/A";
+//             typeOfFreightElement.innerHTML = parcel.typeOfFreight || "N/A";
+//             currentIdElement.innerHTML = parcel.currentId || "N/A";
+
+//         } catch (error) {
+//             console.error("There was a problem with the fetch operation:", error);
+//             // Optionally, show a message to the user if there's an error
+//             alert("Failed to load tracking information. Please try again later.");
+//         }
+//     } else {
+//         // Redirect to home if trackingId is not available in the URL
+//         window.location.href = "/";
+//     }
+// });
+// document.addEventListener("DOMContentLoaded", async function () {
+//     // Extract the value after the '#' from the URL
+//     const trackingId = window.location.hash.slice(1); // .slice(1) to remove the '#' symbol
+//     console.log("Tracking ID:", trackingId);
+
+//     // HTML element selectors for updating with parcel data
+//     const receiverNameElement = document.getElementById("recivername");
+//     const receiverEmailElement = document.getElementById("receiveremail");
+//     const createdDateElement = document.getElementById("created-date");
+//     const uniqueIdElement = document.getElementById("uniqueid");
+//     const senderNameElement = document.getElementById("sendername");
+//     const senderEmailElement = document.getElementById("senderemail");
+//     const arrivalDateElement = document.getElementById("arrival-date2");
+//     const statusElement = document.getElementById("status-new");
+//     const designationElement = document.getElementById("designation-id");
+//     const lastLocateElement = document.getElementById("last-locate");
+//     const currentLocateElement = document.getElementById("current-locate");
+//     const milesElement = document.getElementById("miles");
+//     const typeOfFreightElement = document.getElementById("typeof-frieght");
+//     const currentIdElement = document.getElementById("current-id");
+
+//     // If a trackingId is provided in the URL
+//     if (trackingId) {
+//         try {
+//             // Define the URL for the API endpoint
+//             const url = `https://kingsway-backend.onrender.com/api/v1/customer/parcel/${trackingId}`;
+
+//             // Make the HTTP request using async/await
+//             const response = await fetch(url);
+
+//             // Check if the response is ok (status 200)
+//             if (!response.ok) {
+//                 throw new Error("Network response was not ok");
+//             }
+
+//             // Parse the JSON response
+//             const data = await response.json();
+//             console.log("Response data:", data);
+
+//             // Assuming `data` contains the parcel information
+//             const parcel = data.data; // Adjust this based on the actual API response structure
+
+//             // Update the HTML elements with data from the API response
+//             receiverNameElement.innerHTML = parcel.receiverName || "N/A";
+//             receiverEmailElement.innerHTML = parcel.receiverEmail || "N/A";
+//             createdDateElement.innerHTML = parcel.freightDate  || "N/A";
+//             uniqueIdElement.innerHTML = parcel.orderId || "N/A";
+//             senderNameElement.innerHTML = parcel.senderName || "N/A";
+//             senderEmailElement.innerHTML = parcel.senderEmail || "N/A";
+//             arrivalDateElement.innerHTML = parcel.arrivalDate || "N/A";
+//             statusElement.innerHTML = parcel.status || "N/A";
+//             designationElement.innerHTML = parcel.designation || "N/A";
+//             lastLocateElement.innerHTML = parcel.lastLocation || "N/A";
+//             currentLocateElement.innerHTML = parcel.currentLocation || "N/A";
+//             milesElement.innerHTML = parcel.remainingDistanceInMiles || "N/A";
+//             typeOfFreightElement.innerHTML = parcel.freightType  || "N/A";
+//             currentIdElement.innerHTML = parcel.couriersMessage || "N/A";
+
+//             // If you want to update the map based on the current location, you could also modify the map iframe URL here:
+//             const currentLocation = parcel.currentLocate || 'miami';  // Default to 'miami' if no data is available
+//             document.querySelector("iframe[src*='q=miami']").src = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${newLocation}&zoom=10&maptype=roadmap`;
+
+//         } catch (error) {
+//             console.error("There was a problem with the fetch operation:", error);
+//             // Optionally, show a message to the user if there's an error
+//             alert("Failed to load tracking information. Please try again later.");
+//         }
+//     } else {
+//         // Redirect to home if trackingId is not available in the URL
+//         window.location.href = "/";
+//     }
+// });
+document.addEventListener("DOMContentLoaded", async function () {
+    // Extract the value after the '#' from the URL
+    const trackingId = window.location.hash.slice(1); // .slice(1) to remove the '#' symbol
+    console.log("Tracking ID:", trackingId);
+
+    // HTML element selectors for updating with parcel data
+    const receiverNameElement = document.getElementById("recivername");
+    const receiverEmailElement = document.getElementById("receiveremail2");
+    const createdDateElement = document.getElementById("created-date");
+    const uniqueIdElement = document.getElementById("uniqueid");
+    const senderNameElement = document.getElementById("sendername");
+    const senderEmailElement = document.getElementById("senderemail2");
+    const arrivalDateElement = document.getElementById("arrival-date2");
+    const statusElement = document.getElementById("status-new");
+    const designationElement = document.getElementById("designation-id");
+    const lastLocateElement = document.getElementById("last-locate");
+    const currentLocateElement = document.getElementById("current-locate");
+    const milesElement = document.getElementById("miles");
+    const typeOfFreightElement = document.getElementById("typeof-frieght");
+    const currentIdElement = document.getElementById("current-id");
 
 
-          },
-          error: function(err) {
-              setInterval(function() {$(".nlbtn").show(); $(".lbtn").hide(); },1500);
-              console.log(err);
-              //  alert('Form submission failed!');
-              $.toast({
-                  text: '<h6 style="color: #fff; font-size: 13px;"><i class="fa-solid fa-exclamation-circle"></i> Form submission failed</h6>',
-                  showHideTransition: 'slide',
-                  bgColor: '#b92020',
-                  textColor: '#eee',
-                  allowToastClose: false,
-                  hideAfter: 5000,
-                  stack: 15,
-                  textAlign: 'left',
-                  position: 'top-right'
-              });
+    function capitalizeFirstLetter(str) {
+        if (!str) return ""; // Return empty string if no value
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    }
+
+    
+    // If a trackingId is provided in the URL
+    if (trackingId) {
+        try {
+            // Define the URL for the API endpoint
+            const url = `https://kingsway-backend.onrender.com/api/v1/customer/parcel/${trackingId}`;
+
+            // Make the HTTP request using async/await
+            const response = await fetch(url);
+
+            // Check if the response is ok (status 200)
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            // Parse the JSON response
+            const data = await response.json();
+            console.log("Response data:", data);
+
+            // Assuming `data` contains the parcel information
+            const parcel = data.data; // Adjust this based on the actual API response structure
+
+            // Update the HTML elements with data from the API response
+            receiverNameElement.innerHTML = capitalizeFirstLetter(parcel.receiverName) || "N/A";
+            receiverEmailElement.innerHTML = parcel.receiverEmail || "N/A";
+            createdDateElement.innerHTML = parcel.freightDate || "N/A";
+            uniqueIdElement.innerHTML = parcel.orderId || "N/A";
+            senderNameElement.innerHTML = capitalizeFirstLetter(parcel.senderName) || "N/A";
+            senderEmailElement.innerHTML = parcel.email || "N/A";
+            arrivalDateElement.innerHTML = parcel.arrivalDate || "N/A";
+            statusElement.innerHTML = capitalizeFirstLetter(parcel.status) || "N/A";
+            designationElement.innerHTML = capitalizeFirstLetter(parcel.parcelsDesignation )|| "N/A";
+            lastLocateElement.innerHTML = capitalizeFirstLetter(parcel.lastLocation) || "N/A";
+            currentLocateElement.innerHTML =capitalizeFirstLetter(parcel.currentLocation )|| "N/A";
+            milesElement.innerHTML = parcel.remainingDistanceInMiles || "N/A";
+            typeOfFreightElement.innerHTML = capitalizeFirstLetter(parcel.freightType )|| "N/A";
+            currentIdElement.innerHTML = capitalizeFirstLetter(parcel.couriersMessage) || "N/A";
+
+            // Dynamically update the greeting with the receiver's name
+            const greetingElement = document.getElementById("greeting");
+            greetingElement.innerHTML = `Hello, ${capitalizeFirstLetter(parcel.receiverName) || "N/A"}`;
 
 
-          }
-      });
-  }
+
+            // Dynamically update the map location
+            const currentLocation = parcel.currentLocation || 'miami';  // Default to 'miami' if no data is available
+            const mapIframe = document.getElementById("map-iframe");
+            mapIframe.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(currentLocation)}&zoom=10&maptype=roadmap`;
+
+        } catch (error) {
+            console.error("There was a problem with the fetch operation:", error);
+            // Optionally, show a message to the user if there's an error
+            alert("Failed to load tracking information. Please try again later.");
+        }
+    } else {
+        // Redirect to home if trackingId is not available in the URL
+        window.location.href = "/";
+    }
+});
+
+
+
+
+   
 </script>
 <script src="admin.js"></script>
   </body>

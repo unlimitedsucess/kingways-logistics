@@ -233,14 +233,14 @@ table {
 .arrive-date-input {
   width: 111px;
  height: 24px; 
-}
+}*/
 .status-update {
   width: 85px;
    height: 24px; 
   color: #002cdb;
   padding: 0;
   margin: 0;
-} */
+} 
 .action-btn {
   width: 156px;
   height: 32px;
@@ -297,7 +297,7 @@ th {
   position: absolute;
   top: 0;
   top: 180px;
-  z-index: 9999999999999999999999999999999999999999999999999999999999;
+  z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
   /* left: 50%;
   transform: translateX(-50%); */
   right: 0;
@@ -369,7 +369,6 @@ select {
   border-radius: 0;
 }
 option {
-  background-color: green;
   font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -389,7 +388,7 @@ option {
   display: flex;
   flex-direction: row;
   justify-content: left;
-  margin-top: -20px;
+  margin-top: 20px;
   gap: 6px;
 }
 .udate2-btn {
@@ -454,7 +453,13 @@ option {
   box-sizing: border-box;
   display: none;
 }
-
+th {
+  width: fit-content;
+  padding-right: 20px;
+  text-align: left;
+  background-color: #dcdcdc;
+  text-wrap: nowrap;
+}
 .createShipment h1 {
   font-family: "Inter", sans-serif;
   font-size: 32px;
@@ -462,6 +467,13 @@ option {
   line-height: 38.73px;
   text-align: left;
 }
+td {
+  height: fit-content;
+}
+table {
+  overflow: scroll;
+}
+
 .createShipment {
   width: 946px;
   height: 570px;
@@ -501,7 +513,7 @@ option {
   text-align: left;
   padding-top: 12px;
 }
-#create-btn{
+#create-btn {
   width: 150px;
   height: 32px;
   padding: 4px;
@@ -567,6 +579,27 @@ option {
   align-content: center;
   margin-top: 20px;
 }
+.shipment-details {
+  padding-left: 40px;
+}
+#status {
+  background-color: black;
+  border: none;
+}
+option {
+  background-color: transparent;
+  color: transparent;
+}
+
+#pending {
+  color: #e10000;
+}
+#ongoing {
+  color: #002cdb;
+}
+#completed {
+  color: #08ca08;
+}
 .delete-section button {
   width: 36px;
   height: 27px;
@@ -589,7 +622,32 @@ option {
 }
 th {
   height: fit-content;
+  height: 20px !important;
+  text-wrap: nowrap !important;
 }
+td {
+  padding: 0;
+  padding-right: 20px;
+  height: fit-content;
+  height: 20px !important;
+}
+.select-status {
+  border: none;
+  background: none;
+  width: fit-content;
+}
+.delete-btn {
+  width: 70px;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #D4D4D4;
+  opacity: 0px;
+}
+/* Add this to your CSS */
+.parcel-row {
+  height: 30px;
+}
+
 @media only screen and (min-width: 280px) and (max-width: 1200px) {
   * {
     padding: 0;
@@ -636,6 +694,7 @@ th {
   }
   .title h3 {
     font-size: 14px;
+
   }
   .create-container {
     flex-direction: column;
@@ -765,22 +824,25 @@ th {
   .createShipment h1 {
     width: 100%;
     text-align: center;
-    font-size: 16px
+    font-size: 16px;
   }
-  #createButton{
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  width: 100%;
-  align-items: center;
-  padding-bottom: 10px
+  #createButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 10px;
   }
-  .createShipment .form-flex{
+  .createShipment .form-flex {
     width: 100%;
     padding: 0;
   }
-  .createShipment form{
+  .createShipment form {
     width: 100%;
     padding: 0;
+  }
+  .delete-section {
+    top: 1000px;
   }
 }

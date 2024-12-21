@@ -91,6 +91,7 @@ section {
   color: #333;
   pointer-events: none;
   transition: 0.5s;
+  padding-bottom: 30px;
 }
 
 .user-box input:focus ~ label,
