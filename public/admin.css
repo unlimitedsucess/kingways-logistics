@@ -647,6 +647,9 @@ td {
 .parcel-row {
   height: 30px;
 }
+input{
+  padding: 5px;
+}
 
 @media only screen and (min-width: 280px) and (max-width: 1200px) {
   * {
@@ -749,7 +752,6 @@ td {
   .update-screen h1 {
     padding: 0;
     text-align: center;
-    padding-bottom: 20px;
   }
   .form-flex,
   .form-flex2 {
@@ -825,12 +827,13 @@ td {
     width: 100%;
     text-align: center;
     font-size: 16px;
+    padding-bottom: 20px;
   }
   #createButton {
     display: flex;
     justify-content: center;
     margin-top: 30px;
-    width: 100%;
+    width: 90%;
     align-items: center;
     padding-bottom: 10px;
   }
@@ -844,5 +847,9 @@ td {
   }
   .delete-section {
     top: 1000px;
+  }
+ #create-btn, #cancel-btn {
+  font-size: 14px;
+    width: 80px;
   }
 }

@@ -524,7 +524,7 @@
             <div id="createButton" style="display: flex; flex-direction: row; gap: 10px;">
               <div>
                 <button type="submit" id="create-btn" class="ht-btn ht-btn-md nlbtn">Create +</button>
-              <button type="submit" class="ht-btn ht-btn-md lbtn" style="display: none; background-color: #fe42027d;" disabled="">
+                <button type="submit" class="ht-btn ht-btn-md lbtn" style="display: none; background-color: #fe42027d;" disabled="">
                 <div class="spinner-border spinner-border-sm" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
@@ -909,12 +909,17 @@
     // } -->
 
    <script>
+     const authToken = localStorage.getItem('authToken');
+    //  document.addEventListener("DOMContentLoaded", async function () {
+
 const updateManu = document.querySelector(".update-screen");
 const createBtn = document.getElementById("createbtn");
 const newConsignment = document.querySelector(".createShipment");
 const createConsignmentBtn = document.getElementById("create-btn");
 const deletePackage = document.querySelector(".delete-section");
 const cancelUpdate = document .getElementById("closeUpdateModal")
+const cancelCreate = document.getElementById("cancel-btn")
+
 
 
 function capitalizeFirstLetter(str) {
@@ -927,8 +932,10 @@ createBtn.addEventListener("click", function(){
   console.log("clicked", createBtn)
 })
 
-const cancelCreate = document.getElementById("cancel-btn")
-console.log (cancelCreate)
+cancelCreate.addEventListener("click", function(event){
+  newConsignment.classList.toggle("active3")
+  event.preventDefault()
+})
 
 
 cancelUpdate.addEventListener("click", function(){
@@ -941,7 +948,6 @@ cancelUpdate.addEventListener("click", function(){
 //  updateManu.classList.toggle("active2")
 // }) 
 
-   const authToken = localStorage.getItem('authToken');
    document.getElementById('createform').addEventListener('submit', async function(event) {
     event.preventDefault(); // Prevent the form from submitting normally 
 
@@ -1065,65 +1071,7 @@ cancelUpdate.addEventListener("click", function(){
 
 
 
-      async function getParcels() {
-    const authToken = localStorage.getItem('authToken');
-
-    if (!authToken) {
-        window.location.href = '/admin.html'; // Redirect if no token is found
-        return; // Stop the function if no token is found
-    }
-
-    const apiUrl = 'https://kingsway-backend.onrender.com/api/v1/parcel'; // API URL for parcels
-
-    try {
-        const response = await fetch(apiUrl, {
-            method: 'GET', // HTTP GET method
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${authToken}` // Add token to Authorization header
-            }
-        });
-
-        // Check for unauthorized access
-        if (response.status === 401) {
-            localStorage.removeItem('authToken');
-            window.location.href = '/adminlogin.html'; // Redirect to login if token is invalid
-            return;
-        }
-
-        const data = await response.json(); // Parse the JSON data
-        console.log('API Response:', data, response.status,response.ok); 
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch data');
-        }
-
-  // Log the full response for debugging
-
-        // Assuming 'data.data' contains the array of parcels
-        const parcels = data.data; // This should be an array of parcels
-        if (Array.isArray(parcels)) {
-            renderParcels(parcels);
-        } else {
-            console.error('Fetched data is not an array:', data);
-            alert('Failed to fetch parcel data. Please try again.');
-        }
-    } catch (error) {
-      
-      $.toast({
-            text: '<h6 style="color: #fff; font-size: 13px;"><i class="fa-solid fa-exclamation-circle"></i> Failed to fetch data. Please try again..</h6>',
-            showHideTransition: 'slide',
-            bgColor: '#b92020',
-            textColor: '#eee',
-            allowToastClose: false,
-            hideAfter: 5000,
-            stack: 15,
-            textAlign: 'left',
-            position: 'top-right'
-        });
-        console.error('Error fetching protected data:', error);
-    }
-}
+ 
 
 // Render parcels into the table
 function renderParcels(parcels) {
@@ -1789,8 +1737,75 @@ document.querySelector('.update-cancel-btn').addEventListener('click', function(
 // }
 
 // Call the function to fetch data and render the table
-getParcels();
 
+
+
+async function getParcels() {
+    const authToken = localStorage.getItem('authToken');
+
+    if (!authToken) {
+        window.location.href = '/admin.html'; // Redirect if no token is found
+        return; // Stop the function if no token is found
+    }
+
+    const apiUrl = 'https://kingsway-backend.onrender.com/api/v1/parcel'; // API URL for parcels
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'GET', // HTTP GET method
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}` // Add token to Authorization header
+            }
+        });
+
+        // Check for unauthorized access
+        if (response.status === 401) {
+            localStorage.removeItem('authToken');
+            window.location.href = '/adminlogin.html'; // Redirect to login if token is invalid
+            return;
+        }
+
+        const data = await response.json(); // Parse the JSON data
+        console.log('API Response:', data, response.status,response.ok); 
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+
+  // Log the full response for debugging
+
+        // Assuming 'data.data' contains the array of parcels
+        const parcels = data.data; // This should be an array of parcels
+        if (Array.isArray(parcels)) {
+            renderParcels(parcels);
+        } else {
+            console.error('Fetched data is not an array:', data);
+            alert('Failed to fetch parcel data. Please try again.');
+        }
+    } catch (error) {
+      
+      $.toast({
+            text: '<h6 style="color: #fff; font-size: 13px;"><i class="fa-solid fa-exclamation-circle"></i> Failed to fetch data. Please try again..</h6>',
+            showHideTransition: 'slide',
+            bgColor: '#b92020',
+            textColor: '#eee',
+            allowToastClose: false,
+            hideAfter: 5000,
+            stack: 15,
+            textAlign: 'left',
+            position: 'top-right'
+        });
+        console.error('Error fetching protected data:', error);
+    }
+}
+
+if (!authToken) {
+    window.location.href = '/admin.html'; // Redirect if no token is found
+ // Stop the function if no token is found
+} else {
+  getParcels();
+}
 
  </script>
    <Script src="admin.js"></Script>
