@@ -327,11 +327,22 @@ p {
   text-align: left;
 }
 th {
-  font-family:  "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-weight: bold;
+  width: fit-content;
+  padding-right: 20px;
   text-align: left;
+  background-color: #dcdcdc;
+  text-wrap: nowrap;
+}
+th {
+  height: fit-content;
+  height: 20px !important;
+  text-wrap: nowrap !important;
+}
+td {
+  padding: 0;
+  padding-right: 20px;
+  height: fit-content;
+  height: 20px !important;
 }
 .table-container th {
   padding-bottom: 0px;
@@ -404,10 +415,6 @@ th {
 }
 .outer-container {
   width: 261px;
-}
-tr {
-  align-content: center;
-  align-items: center;
 }
 .table-container{
   overflow-x: scroll;
@@ -630,15 +637,14 @@ tr {
     padding: 0;
     margin: 0;
   }
-  td.reciever-details{
-    padding: 0;
+  tr {
+    width: 100%;
+    gap: 10px;
   }
-  th, td{
-    padding: 0;
-    width: fit-content;
-    font-size: 14px;
-    padding-right: 20px;
-    text-wrap: nowrap;
+  td,
+  th {
+    padding: 15px;
+    text-wrap: nowrap !important;
   }
   .table-container{
     width: 100%;
