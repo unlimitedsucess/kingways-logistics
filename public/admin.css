@@ -591,6 +591,10 @@ option {
   color: transparent;
 }
 
+button{
+  cursor: pointer;
+}
+
 #pending {
   color: #e10000;
 }
@@ -650,7 +654,20 @@ td {
 input{
   padding: 5px;
 }
-
+.shipment-details{
+  position: relative;
+}
+.delete-section{
+  width: fit-content;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  
+}
+.delete-section button{
+  cursor: pointer;
+  
+}
 @media only screen and (min-width: 280px) and (max-width: 1200px) {
   * {
     padding: 0;
@@ -753,6 +770,9 @@ input{
     padding: 0;
     text-align: center;
   }
+  .shipment-details{
+    position: relative;
+  }
   .form-flex,
   .form-flex2 {
     display: flex;
@@ -851,5 +871,12 @@ input{
  #create-btn, #cancel-btn {
   font-size: 14px;
     width: 80px;
+  }
+  .delete-section{
+    width: fit-content;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    
   }
 }

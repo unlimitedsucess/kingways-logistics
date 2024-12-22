@@ -1102,7 +1102,6 @@ function renderParcels(parcels) {
             <option style="color:green"  value="completed" ${parcel.status === 'completed' ? 'selected' : ''}>completed</option>
         </select>
 </td>
-
             <td class="action-btn">
                 <button class="update-btn">Update</button>
                 <button class="delete-btn">Delete</button>
@@ -1202,23 +1201,25 @@ updateButton.addEventListener('click', function () {
 
         // Add event listener for the 'Cancel Delete' button
         cancelDeleteButton.addEventListener('click', function () {
+
             deleteSection.style.display = 'none'; // Hide the delete confirmation section
         });
 
         // Add event listener for the 'Confirm Delete' button
         confirmDeleteButton.addEventListener('click', function () {
-            const parcelId = parcel._id;  // Parcel ID to delete
+    const parcelId = parcel._id;  // Parcel ID to delete
 
-            // Hide the delete confirmation section
-            deleteSection.style.display = 'none';
+    // Hide the delete confirmation section
+    deleteSection.style.display = 'none';
 
-            // Retrieve the token from localStorage
-            const token = localStorage.getItem('authToken');
-            if (!token) {
-              $.toast({
+    // Retrieve the token from localStorage
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        // If no token, show a failure toast
+        $.toast({
             text: '<h6 style="color: #fff; font-size: 13px;"><i class="fa-solid fa-exclamation-circle"></i>You are not authenticated. Please log in.</h6>',
             showHideTransition: 'slide',
-            bgColor: '#b92020',
+            bgColor: '#b92020',  // Red for failure
             textColor: '#eee',
             allowToastClose: false,
             hideAfter: 5000,
@@ -1226,10 +1227,68 @@ updateButton.addEventListener('click', function () {
             textAlign: 'left',
             position: 'top-right'
         });
-                return;
+        return;
+    }
+
+    // Make a DELETE request to the API to delete the parcel
+    fetch(`https://kingsway-backend.onrender.com/api/v1/parcel/${parcelId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`  // Sending the token for authentication
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // If the deletion is successful, remove the row from the table
+            const row = document.querySelector(`[data-parcel-id="${parcelId}"]`);  // Find the row to delete by parcel ID
+            if (row) {
+                row.remove(); // Remove the row
             }
 
+            // Show success toast
+            $.toast({
+                text: '<h6 style="color: #fff; font-size: 13px;"><i class="fa-solid fa-check-circle"></i> Parcel deleted successfully!</h6>',
+                showHideTransition: 'slide',
+                bgColor: '#4caf50',  // Green color for success
+                textColor: '#fff',
+                allowToastClose: false,
+                hideAfter: 5000,
+                stack: 15,
+                textAlign: 'left',
+                position: 'top-right'
+            });
+        } else {
+            // Show failure toast if the deletion wasn't successful
+            $.toast({
+                text: '<h6 style="color: #fff; font-size: 13px;"><i class="fa-solid fa-check-circle"></i> Parcel deleted successfully!</h6>',
+                showHideTransition: 'slide',
+                bgColor: '#4caf50',  // Green color for success
+                textColor: '#fff',
+                allowToastClose: false,
+                hideAfter: 5000,
+                stack: 15,
+                textAlign: 'left',
+                position: 'top-right'
+            });
+        }
+    })
+    .catch(error => {
+        // Show error toast if the request fails (e.g., network issue)
+        $.toast({
+            text: '<h6 style="color: #fff; font-size: 13px;"><i class="fa-solid fa-exclamation-circle"></i> An error occurred. Please try again later.</h6>',
+            showHideTransition: 'slide',
+            bgColor: '#b92020',  // Red for failure
+            textColor: '#eee',
+            allowToastClose: false,
+            hideAfter: 5000,
+            stack: 15,
+            textAlign: 'left',
+            position: 'top-right'
         });
+    });
+});
 
         // Append the row to the table body
         tableBody.appendChild(row);
