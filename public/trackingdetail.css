@@ -344,6 +344,10 @@ th {
   flex-direction: column;
   align-content: center;
   gap: 12px;
+  padding-bottom: 30px;
+}
+.mapswrapper, iframe {
+  border: 1px solid #ff936e;
 }
 .sender-details h3{
   padding: 0;
@@ -393,6 +397,9 @@ th {
   gap: 10px;
   border: 1px dashed black;
   opacity: 0px;
+}
+#current-id{
+ height: 80px;
 }
 .outer-container {
   width: 261px;
@@ -580,9 +587,7 @@ tr {
     align-items: center;
     padding-top: 20px;
   }
-  .outer-containe {
-    
-  }
+  
   .user-output {
     width: 200px;
     height: 24px;
@@ -610,7 +615,7 @@ tr {
   }
   .map-title{
     font-family:  "Inter", sans-serif;
-    font-size: 10px;
+    font-size: 16px;
     font-weight: 400;
     text-align: center;
     padding: 0;
