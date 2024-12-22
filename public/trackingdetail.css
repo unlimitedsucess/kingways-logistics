@@ -157,12 +157,12 @@ nav {
   box-sizing: border-box;
 }
 
+
 .section1 {
-  width: 90%;
+  width: 100%;
   height: fit-content;
   top: 31px;
-  left: 89px;
-  padding: 20px 66px 20px 66px;
+  padding: 40px;
   gap: 0px;
   border-radius: 12px;
   opacity: 0px;
@@ -409,6 +409,10 @@ tr {
   align-content: center;
   align-items: center;
 }
+.table-container{
+  overflow-x: scroll;
+  height: 130px;
+}
 .map-title{
     font-family:  "Inter", sans-serif;
     font-size: 20px;
@@ -578,6 +582,10 @@ tr {
     align-items: center;
 
   }
+  #designation-id{
+    background-color: #002cdb;
+  }
+  
   .detailed-screen {
     width: 100%;
     height: 366px;
