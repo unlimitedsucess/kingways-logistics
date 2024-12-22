@@ -455,7 +455,8 @@
               <th class="orderId">Order ID</th>
               <th>Sender's Name / Email</th>
               <th>Arrival Date</th>
-              <th style="padding-right: 20px;">Weight of Parcel (Kg)</th> <!-- Added weight column -->
+              <th>Weight of Parcel (Kg)</th> <!-- Added weight column -->
+              <th>Status</th>
               <th>Designation</th>
             </tr>
             <tr>
@@ -470,7 +471,9 @@
                 <p class="senderemail" id="senderemail2"></p>
               </td>
               <td class="arrive-date-input" id="arrival-date2"></td>
+              <td id="weight-output"></td>
               <td class="status-update" id="status-new"></td>
+              <td id="status-new"></td>
               <td id="designation-id"></td>
             </tr>
           </table>
@@ -949,6 +952,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const milesElement = document.getElementById("miles");
     const typeOfFreightElement = document.getElementById("typeof-frieght");
     const currentIdElement = document.getElementById("current-id");
+    const weightElement = document.getElementById ("weight-output")
 
 
     function capitalizeFirstLetter(str) {
@@ -979,20 +983,23 @@ document.addEventListener("DOMContentLoaded", async function () {
             const parcel = data.data; // Adjust this based on the actual API response structure
 
             // Update the HTML elements with data from the API response
-            receiverNameElement.innerHTML = capitalizeFirstLetter(parcel.receiverName) || "N/A";
-            receiverEmailElement.innerHTML = parcel.receiverEmail || "N/A";
-            createdDateElement.innerHTML = parcel.freightDate || "N/A";
-            uniqueIdElement.innerHTML = parcel.orderId || "N/A";
-            senderNameElement.innerHTML = capitalizeFirstLetter(parcel.senderName) || "N/A";
-            senderEmailElement.innerHTML = parcel.email || "N/A";
-            arrivalDateElement.innerHTML = parcel.arrivalDate || "N/A";
-            statusElement.innerHTML = capitalizeFirstLetter(parcel.status) || "N/A";
-            designationElement.innerHTML = capitalizeFirstLetter(parcel.parcelsDesignation )|| "N/A";
-            lastLocateElement.innerHTML = capitalizeFirstLetter(parcel.lastLocation) || "N/A";
-            currentLocateElement.innerHTML =capitalizeFirstLetter(parcel.currentLocation )|| "N/A";
-            milesElement.innerHTML = parcel.remainingDistanceInMiles || "N/A";
-            typeOfFreightElement.innerHTML = capitalizeFirstLetter(parcel.freightType )|| "N/A";
-            currentIdElement.innerHTML = capitalizeFirstLetter(parcel.couriersMessage) || "N/A";
+           // Assigning capitalized values (or "N/A" if missing)
+receiverNameElement.innerHTML = capitalizeFirstLetter(parcel.receiverName) || "N/A";
+receiverEmailElement.innerHTML = parcel.receiverEmail || "N/A";
+createdDateElement.innerHTML = parcel.freightDate || "N/A";
+uniqueIdElement.innerHTML = parcel.orderId || "N/A";
+senderNameElement.innerHTML = capitalizeFirstLetter(parcel.senderName) || "N/A";
+senderEmailElement.innerHTML = parcel.email || "N/A";
+arrivalDateElement.innerHTML = parcel.arrivalDate || "N/A";
+statusElement.innerHTML = capitalizeFirstLetter(parcel.status) || "N/A";
+designationElement.innerHTML = capitalizeFirstLetter(parcel.parcelsDesignation) || "N/A";
+lastLocateElement.innerHTML = capitalizeFirstLetter(parcel.lastLocation) || "N/A";
+currentLocateElement.innerHTML = capitalizeFirstLetter(parcel.currentLocation) || "N/A";
+milesElement.innerHTML = parcel.remainingDistanceInMiles || "N/A";
+typeOfFreightElement.innerHTML = capitalizeFirstLetter(parcel.freightType) || "N/A";
+currentIdElement.innerHTML = capitalizeFirstLetter(parcel.couriersMessage) || "N/A";
+weightElement.innerHTML = capitalizeFirstLetter(parcel.parcelWeight) || "N/A";
+
 
             // Dynamically update the greeting with the receiver's name
             const greetingElement = document.getElementById("greeting");
