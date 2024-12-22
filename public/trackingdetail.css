@@ -513,6 +513,9 @@ tr {
     align-items: center;
     
   }
+  th{
+    font-weight: bold;
+  }
   .sender-details h3{
     padding: 0;
     align-items: center;
