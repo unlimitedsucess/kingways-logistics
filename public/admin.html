@@ -517,8 +517,8 @@
                 />
                 <label for="designation-input">Parcels designation</label>
                 <input name="designation-inpu" type="text" id="designation-input"/>
-                <label for="map-changer">New location</label>
-                <input type="text" placeholder="map-changer" id="map-changer"> 
+                <label for="number-input">Receivers number</label>
+                <input type="text" name="number-input" id="number-input">
               </div>
             </div>
             <div id="createButton" style="display: flex; flex-direction: row; gap: 10px;">
@@ -609,8 +609,8 @@
                 </select>
                 <label for="distance">Remaining distance in miles</label>
                 <input name="distance" type="text" id="distance" required>
-                <label for="map-changer2">New location</label>
-                <input type="text" placeholder="Change location" id="map-changer2"> 
+                <label for="number-input1">Receivers number</label>
+                <input type="text" name="number-input2" id="number-input1"> 
                 <input style="display: none;" type="text" id="_id"> 
               </div>
             </div>
@@ -962,7 +962,7 @@ cancelUpdate.addEventListener("click", function(){
       arrivalDate: document.getElementById ("arrivalDate-input").value,
       parcelWeight: document.getElementById("Weight-input").value,
       parcelsDesignation: document.getElementById("designation-input").value,
-      newLocation: document.getElementById("map-changer").value,
+      phoneNumber: document.getElementById("number-input").value,
     };
 
 
@@ -1086,6 +1086,7 @@ function renderParcels(parcels) {
             <td class="reciever-details" >
                 <h3 id="sender-name">${parcel.senderName}</h3>
                 <p id="sender-email">${parcel.email}</p>
+                <p id="reciever-number">${parcel.phoneNumber}</p>
             </td>
             <td class="date-input" id="freight-date">${parcel.freightDate}</td>
             <td class="tracking-id" id="tracking-no">${parcel.orderId}</td>
@@ -1094,7 +1095,7 @@ function renderParcels(parcels) {
                 <p id="reciever-email">${parcel.receiverEmail}</p>
             </td>
             <td class="arrive-date-input" id="arrival-date">${parcel.arrivalDate}</td>
-            <td id="Weight-kg">${parcel.parcelWeight}</td>
+            <td id="Weight-kg">${parcel.parcelWeight} (kg)</td>
            <td class="status-update">
      <select onchange="selectedStatus(this.value, '${parcel._id}')" class="select-status" name="status" id="status-${parcel._id}">
             <option style="color:red;" value="pending" ${parcel.status === 'pending' ? 'selected' : ''}>Pending</option>
@@ -1114,11 +1115,16 @@ function renderParcels(parcels) {
                 </div>
             </td>
         `;
+        
         row.style.height ="30px"
+        const weightCell = document.getElementById("Weight-kg");
+
+// Update the content dynamically
 
         // Event listener for the 'Update' button
         // Assuming this is your element with the class '.update-screen'
 const updateManu = document.querySelector(".update-screen");
+
 
 // Event listener for the 'Update' button
 const updateButton = row.querySelector('.update-btn');
@@ -1135,7 +1141,7 @@ updateButton.addEventListener('click', function () {
     document.getElementById("currentLocation").value  = capitalizeFirstLetter(parcel.currentLocation)
     document.getElementById("lastLocation").value =capitalizeFirstLetter (parcel.lastLocation)
     document.getElementById("freightType2").value =capitalizeFirstLetter(parcel.freightType)
-    document.getElementById("map-changer2").value = capitalizeFirstLetter(parcel.newLocation)
+    document.getElementById("number-input1").value = (parcel.phoneNumber)
     document.getElementById("couriers-msg").value = capitalizeFirstLetter(parcel.couriersMessage)
     document.getElementById("distance").value = capitalizeFirstLetter(parcel.remainingDistanceInMiles)
     document.getElementById("_id").value =parcel._id
@@ -1427,7 +1433,7 @@ document.getElementById('updateBtn').addEventListener('click', async function(id
     couriersMessage: document.getElementById('couriers-msg').value.trim(),
     freightType: document.getElementById('freightType2').value.trim(),
     remainingDistanceInMiles: document.getElementById('distance').value.trim(),
-    newLocation: document.getElementById('map-changer2').value.trim(),
+    phoneNumber: document.getElementById('number-input1').value.trim(),
   };
 
   // Log the updated data to verify it's correct

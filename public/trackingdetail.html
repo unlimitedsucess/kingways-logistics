@@ -463,6 +463,7 @@
               <td class="reciever-details">
                 <h3 id="recivername"></h3>
                 <p id="receiveremail2"></p>
+                <p id="receivernumber"></p>
               </td>
               <td class="date-input" id="created-date"></td>
               <td class="tracking-id" id="uniqueid"></td>
@@ -952,6 +953,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const typeOfFreightElement = document.getElementById("typeof-frieght");
     const currentIdElement = document.getElementById("current-id");
     const weightElement = document.getElementById ("weight-output")
+    const phoneNumber = document.getElementById("receivernumber")
 
 
     function capitalizeFirstLetter(str) {
@@ -994,10 +996,11 @@ statusElement.innerHTML = capitalizeFirstLetter(parcel.status) || "N/A";
 designationElement.innerHTML = capitalizeFirstLetter(parcel.parcelsDesignation) || "N/A";
 lastLocateElement.innerHTML = capitalizeFirstLetter(parcel.lastLocation) || "N/A";
 currentLocateElement.innerHTML = capitalizeFirstLetter(parcel.currentLocation) || "N/A";
-milesElement.innerHTML = parcel.remainingDistanceInMiles || "N/A";
+milesElement.innerHTML = `${parcel.remainingDistanceInMiles} (M)` || "N/A";
 typeOfFreightElement.innerHTML = capitalizeFirstLetter(parcel.freightType) || "N/A";
 currentIdElement.innerHTML = capitalizeFirstLetter(parcel.couriersMessage) || "N/A";
-weightElement.innerHTML = capitalizeFirstLetter(parcel.parcelWeight) || "N/A";
+weightElement.innerHTML = `${parcel.parcelWeight} kg` || "N/A";
+phoneNumber.innerHTML = parcel.phoneNumber
 
 
             // Dynamically update the greeting with the receiver's name

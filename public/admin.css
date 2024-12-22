@@ -476,7 +476,7 @@ table {
 
 .createShipment {
   width: 946px;
-  height: 570px;
+  height: 610px;
   border-radius: 24px;
   position: absolute;
   top: 0;
@@ -668,6 +668,9 @@ input{
   cursor: pointer;
   
 }
+#createButton{
+  padding-top: 30px;
+}
 @media only screen and (min-width: 280px) and (max-width: 1200px) {
   * {
     padding: 0;
@@ -769,6 +772,7 @@ input{
   .update-screen h1 {
     padding: 0;
     text-align: center;
+   
   }
   .shipment-details{
     position: relative;
@@ -821,7 +825,7 @@ input{
     transform: translate(-50%);
     display: flex;
     flex-direction: column;
-    height: 70vh;
+    height: 75vh;
     position: fixed;
     border: 10px solid #f6602d;
     top: 150px;
@@ -847,12 +851,12 @@ input{
     width: 100%;
     text-align: center;
     font-size: 16px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
   }
   #createButton {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 0px;
     width: 90%;
     align-items: center;
     padding-bottom: 10px;
