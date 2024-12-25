@@ -149,6 +149,15 @@
           padding-top: 80px;
           padding-bottom: 80px;
         }
+        select.goog-te-combo{
+            padding: 0;
+            margin: 0 !important;
+            text-align: center;
+            cursor: pointer;
+        }
+        div.skiptranslate.goog-te-gadget{
+            height: 37px;
+        }
     </style>
 
 </head>
@@ -193,7 +202,7 @@
                                                 </div>
                                                 <div class="info-content">
                                                     <h6 class="info-title">Email@</h6>
-                                                    <div class="info-sub-title">logistics@kingsway.com</div>
+                                                    <div class="info-sub-title">support@kingswaycompany.com</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -227,35 +236,8 @@
                                 <!-- End of Header Top Info -->
 
                                 <!-- Header Social Networks -->
-                                <div class="header-social-networks style-icons">
-                                    <!DOCTYPE html>
-                                    <html lang="en">
-                                    <head>
-                                        <meta charset="UTF-8">
-                                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                        <title>Language Translator</title>
-                                        <link rel="stylesheet" href="style.css">
-                                    </head>
-                                    <body>
-                                        <div class="container" style="background-color: ; position: fixed; right: 50px; width: fit-content; z-index: 999999999999999999999999999999999999999999999999999999999999;">
-                                            <div class="language-selector">
-                                                <select id="language-select">
-                                                    <option value="en">English</option>
-                                                    <option value="es">Spanish</option>
-                                                    <option value="fr">French</option>
-                                                    <option value="de">German</option>
-                                                    <option value="it">Italian</option>
-                                                    <option value="pt">Portuguese</option>
-                                                    <option value="zh-CN">Chinese (Simplified)</option>
-                                                    <option value="ja">Japanese</option>
-                                                    <option value="ko">Korean</option>
-                                                </select>
-                                            </div>
-                                            <div class="translation-container">
-                                                <p id="translation-text"></p>
-                                            </div>
-                                        </div>
-                                </div>
+
+                            </div>
 
                             </div>
                             <!-- mobile menu -->
@@ -404,6 +386,21 @@
  <!--====================  footer area ====================-->
  <div class="footer-area-wrapper bg-gray">
      <div class="footer-area section-space--ptb_80">
+        <div class="language-bar pull-right" style=" position: fixed; left: 0px; z-index: 3000; top: 160px;" >
+            <div class="dropdown" style="height: 40px;">
+                <button class="btn btn-default" type="button" aria-haspopup="true" aria-expanded="true" style="background-color: transparent; width: 207px;">
+                    <div id="google_translate_element" style=" height: 40px; background-color: transparent;" ></div>
+                </button>
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+                    }
+                </script>
+        
+                <script type="text/javascript"
+                    src="translate.google.com/translate_a/fa0d8.txt?cb=googleTranslateElementInit"></script>
+            </div>
+        </div>
          <div class="container">
              <div class="row footer-widget-wrapper d-flex justify-content-center">
                  <div class="col-lg-4 col-md-6 col-sm-6 col-12 footer-widget">
@@ -413,8 +410,8 @@
                      <ul class="footer-widget__list">
                          <li><img width="20" height="20" src="https://img.icons8.com/ios/20/b43e3d/company--v1.png" alt="company--v1" />
                             700 NE 1st Ave, Miami, FL 33132. United states Of America.</li>
-                         <li><img width="20" height="20" src="https://img.icons8.com/fluency-systems-regular/20/b43e3d/email--v1.png" alt="email--v1" /> <a href="mailto:logistics@kingsway.com" class="hover-style-link">
-                                 logistics@kingsway.com</a></li>
+                         <li><img width="20" height="20" src="https://img.icons8.com/fluency-systems-regular/20/b43e3d/email--v1.png" alt="email--v1" /> <a href="mailto:support@kingswaycompany.com" class="hover-style-link">
+                                 support@kingswaycompany.com</a></li>
                          <li><img width="20" height="20" src="https://img.icons8.com/dotty/20/b43e3d/ringer-volume.png" alt="ringer-volume" /><a href="http://Wa.me/+14092818251" class="hover-style-link text-black font-weight--bold"> +14092818251
                              </a></li>
                      </ul>
@@ -569,6 +566,20 @@
 <!-- Plugins JS (Please remove the comment from below plugins.min.js for better website load performance and remove plugin js files from avobe) -->
 
 <script src="javascript/plugins.min.js"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: "en" },
+        "google_translate_element"
+      );
+    }
+  </script>
+  <script
+    type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  ></script>
+<script src="service/javascript/modernizr-2.8.3.min.js"></script>
+
 
 <!-- Main JS -->
 <script src="javascript/main.js"></script>
@@ -637,7 +648,7 @@
          });
      }
  </script>
-
+<script src="//code.jivosite.com/widget/2eeIucJDn4" async></script>
  <script>
      function submitContact() {
          // Check if any of the input fields are empty
