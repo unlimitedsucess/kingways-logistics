@@ -399,19 +399,17 @@ iframe {
   color: #000000;
   align-content: center;
 }
-.user-output {
-  margin: 0;
-  padding: 0;
-  width: 330px;
-  height: 44px;
-  padding: 10px;
+ 
+#current-id {
   gap: 10px;
   border: 1px dashed black;
   opacity: 0px;
-}
-#current-id {
   height: 80px;
+  width: 330px;
   padding: 10px;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  box-sizing: border-box;
 }
 .outer-container {
   width: 261px;
