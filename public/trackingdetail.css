@@ -354,7 +354,7 @@ td {
   flex-direction: column;
   align-content: center;
   gap: 12px;
-  padding-bottom: 30px;
+  margin-bottom: 40px;
 }
 .mapswrapper,
 iframe {
