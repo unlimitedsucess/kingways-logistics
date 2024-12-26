@@ -382,6 +382,7 @@ option {
   height: 60px;
   padding: 4px;
   gap: 10px;
+  text-wrap: brea;
   resize: none;
 }
 .counter {

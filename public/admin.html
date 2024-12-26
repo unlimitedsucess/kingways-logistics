@@ -592,7 +592,7 @@
                   required
                 />
                 <label for="couriers-msg">Update couriers message:</label>
-                <input id="couriers-msg" maxlength="70" required/>
+                <textarea id="couriers-msg" maxlength="70"></textarea>
               </div>
               <hr style="width: 2px; height: 130px;" />
               <div class="innerflex"  style="display: flex; flex-direction: column;">
@@ -1168,7 +1168,7 @@ updateButton.addEventListener('click', function () {
     document.getElementById("lastLocation").value =capitalizeFirstLetter (parcel.lastLocation)
     document.getElementById("freightType2").value =capitalizeFirstLetter(parcel.freightType)
     document.getElementById("number-input1").value = (parcel.phoneNumber)
-    document.getElementById("couriers-msg").value = capitalizeFirstLetter(parcel.couriersMessage)
+    document.getElementById("couriers-msg").innerHTML = capitalizeFirstLetter(parcel.couriersMessage)
     document.getElementById("distance").value = capitalizeFirstLetter(parcel.remainingDistanceInMiles)
     document.getElementById("_id").value =parcel._id
 });
