@@ -410,7 +410,7 @@ iframe {
   opacity: 0px;
 }
 #current-id {
-  height: fit-content;
+  height: 80px;
   padding: 10px;
 }
 .outer-container {
