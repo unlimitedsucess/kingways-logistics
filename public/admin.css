@@ -379,9 +379,15 @@ option {
 }
 #couriers-msg {
   width: 155.77px;
-  height: 48px;
+  height: 60px;
   padding: 4px;
   gap: 10px;
+  resize: none;
+}
+.counter {
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: yellow;
 }
 .updatebox-btn {
   width: 45%;

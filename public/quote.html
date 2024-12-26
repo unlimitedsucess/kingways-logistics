@@ -1253,7 +1253,7 @@
     const itemValue = parseFloat(document.getElementById('itemValue').value); 
 
     // Define the rate per kg
-    const ratePerKg = 1000; // Example: $2.5 per kg
+    const ratePerKg = 1000; 
 
     // Validate inputs
     if (isNaN(weight) || isNaN(quantity) || isNaN(itemValue)) {
@@ -1261,7 +1261,8 @@
     }
 
     // Calculate the estimated cost
-    const cost = weight * itemValue * quantity * ratePerKg;
+    const cost1 = weight *ratePerKg 
+    console.log(cost1)
 
     // Update the estimated cost in the UI
     document.getElementById('estimate_value-detail').innerText = `$${cost.toFixed(2)}`;
