@@ -372,6 +372,7 @@ option {
   font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 400;
+  background-color: #ffffff !important;
 
   /* text-align: left;
   text-underline-position: from-font;
@@ -593,11 +594,6 @@ table {
   background-color: black;
   border: none;
 }
-option {
-  background-color: transparent;
-  color: transparent;
-}
-
 button{
   cursor: pointer;
 }
