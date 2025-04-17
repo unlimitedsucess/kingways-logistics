@@ -437,6 +437,7 @@
               <th>Freight Date</th>
               <th class="orderId">Order ID</th>
               <th>Sender's Name / Email</th>
+              <th>Senders Address</th>
               <th>Arrival Date</th>
               <th>Weight of Parcel (Kg)</th> <!-- Added weight column -->
               <th>Status</th>
@@ -454,6 +455,7 @@
                 <h3 id="sendername"></h3>
                 <p class="senderemail" id="senderemail2"></p>
               </td>
+              <td id="sender-address3"></td>
               <td class="arrive-date-input" id="arrival-date2"></td>
               <td id="weight-output"></td>
               <td class="status-update" id="status-new"></td>
@@ -825,8 +827,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     const milesElement = document.getElementById("miles");
     const typeOfFreightElement = document.getElementById("typeof-frieght");
     const currentIdElement = document.getElementById("current-id");
-    const weightElement = document.getElementById ("weight-output")
-    const phoneNumber = document.getElementById("receivernumber")
+    const weightElement = document.getElementById ("weight-output");
+    const phoneNumber = document.getElementById("receivernumber");
+    const senderLocation = document.getElementById("sender-address3");
 
 
     function capitalizeFirstLetter(str) {
@@ -839,7 +842,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (trackingId) {
         try {
             // Define the URL for the API endpoint
-            const url = `https://api.kingswaycompany.com/api/v1/customer/parcel/${trackingId}`;
+            const url = `https://kingsway-backend.onrender.com/api/v1/customer/parcel/${trackingId}`;
 
             // Make the HTTP request using async/await
             const response = await fetch(url);
@@ -874,6 +877,7 @@ typeOfFreightElement.innerHTML = capitalizeFirstLetter(parcel.freightType) || "N
 currentIdElement.innerHTML = capitalizeFirstLetter(parcel.couriersMessage) || "N/A";
 weightElement.innerHTML = `${parcel.parcelWeight} kg` || "N/A";
 phoneNumber.innerHTML = parcel.phoneNumber
+senderLocation.innerHTML =  capitalizeFirstLetter(parcel.senderLocation) || "N/A";
 
 
             // Dynamically update the greeting with the receiver's name
@@ -897,11 +901,6 @@ phoneNumber.innerHTML = parcel.phoneNumber
         window.location.href = "/";
     }
 });
-
-
-
-
-   
 </script>
 <script src="//code.jivosite.com/widget/2eeIucJDn4" async></script>
 <script src="admin.js"></script>

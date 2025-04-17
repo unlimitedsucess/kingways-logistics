@@ -161,7 +161,7 @@ nav {
   width: 100%;
   height: fit-content;
   position: relative;
-  padding: 32px 70px;
+  padding: 32px 20px;
 }
 
 /* Slideshow container */
@@ -203,6 +203,7 @@ nav {
   height: 400px;
   overflow-y: scroll;
   margin: auto;
+ box-sizing: border-box;
 }
 table {
   width: 100%;
