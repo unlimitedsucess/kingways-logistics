@@ -504,14 +504,16 @@
         <div id="map-control" style="padding-top: 20px;">
           <div class="mapswrapper">
             <h1 class="map-title">Current location</h1>
-            <iframe 
+            <!-- <iframe 
                 id="map-iframe" 
                 width="100%" 
                 height="450" 
                 loading="lazy" 
                 allowfullscreen 
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=miami&zoom=10&maptype=roadmap">
-            </iframe>
+            </iframe> -->
+            <div id="map" style="width: 100%; height: 450px;"></div>
+
         </div>
       </section>
       
@@ -686,6 +688,8 @@
 <!-- JS
  ============================================ -->
 <!-- Modernizer JS -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
 <script src="services/javascript/modernizr-2.8.3.min.js"></script>
 
 <script type="text/javascript">
@@ -887,9 +891,37 @@ senderLocation.innerHTML =  capitalizeFirstLetter(parcel.senderLocation) || "N/A
 
 
             // Dynamically update the map location
-            const currentLocation = parcel.currentLocation || 'miami';  // Default to 'miami' if no data is available
-            const mapIframe = document.getElementById("map-iframe");
-            mapIframe.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(currentLocation)}&zoom=10&maptype=roadmap`;
+            // const currentLocation = parcel.currentLocation || 'miami';  // Default to 'miami' if no data is available
+            // const mapIframe = document.getElementById("map-iframe");
+            // mapIframe.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(currentLocation)}&zoom=10&maptype=roadmap`;
+
+            
+   
+       const currentLocation = parcel.currentLocation || "miami" // Or set dynamically
+
+    function initMap() {
+        const locationName = parcel.currentLocation || "miami";
+
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ address: locationName }, (results, status) => {
+            if (status === "OK") {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    center: results[0].geometry.location,
+                    zoom: 14,
+                    mapTypeId: "roadmap"
+                });
+
+                new google.maps.Marker({
+                    position: results[0].geometry.location,
+                    map,
+                    title: locationName
+                });
+            } else {
+                console.error("Geocoding failed: " + status);
+            }
+        });
+    }
+
 
         } catch (error) {
             console.error("There was a problem with the fetch operation:", error);
