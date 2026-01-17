@@ -1126,7 +1126,7 @@ cancelUpdate.addEventListener("click", function(){
     const formData = {
       senderName: document.getElementById('senderName-input').value,
       email: document.getElementById('senderEmail-input').value,
-      : document.getElementById('email').value,
+      receiverEmail: document.getElementById('email').value,
       receiverName: document.getElementById("recieverName-input").value,
       freightDate: document.getElementById('freightDate-input').value,
       arrivalDate: document.getElementById ("arrivalDate-input").value,
@@ -1984,6 +1984,8 @@ document.querySelector('.update-cancel-btn').addEventListener('click', function(
 
 async function getParcels() {
     const authToken = localStorage.getItem('authToken');
+
+    console.log ("hhhhhh", authToken)
 
     if (!authToken) {
         window.location.href = '/admin.html'; // Redirect if no token is found
