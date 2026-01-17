@@ -56,6 +56,7 @@
       <link rel="stylesheet" href="services/css/styles.css" />
       <link rel="stylesheet" href="services/css/main.css"/>
       <link rel="stylesheet" href="trackingdetail.css"/>
+     
 
       <style>
         th{
@@ -810,7 +811,7 @@ dateParagraph.textContent = `Today's date: ${formatDate(currentDate)}`;
   }
 </script>
 
-<script>
+<!-- <script>
 document.addEventListener("DOMContentLoaded", async function () {
     // Extract the value after the '#' from the URL
     const trackingId = window.location.hash.slice(1); // .slice(1) to remove the '#' symbol
@@ -846,7 +847,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (trackingId) {
         try {
             // Define the URL for the API endpoint
-            const url = `https://kingsway-backend.onrender.com/api/v1/customer/parcel/${trackingId}`;
+            const url = `https://kingsway-backend-1.onrender.com/api/v1/customer/parcel/${trackingId}`;
 
             // Make the HTTP request using async/await
             const response = await fetch(url);
@@ -899,11 +900,25 @@ senderLocation.innerHTML =  capitalizeFirstLetter(parcel.senderLocation) || "N/A
    
        const currentLocation = parcel.currentLocation || "miami" // Or set dynamically
 
-    function initMap() {
-        const locationName = parcel.currentLocation || "miami";
+
+
+
+        } catch (error) {
+            console.error("There was a problem with the fetch operation:", error);
+            // Optionally, show a message to the user if there's an error
+            console.log("Failed to load tracking information. Please try again later.");
+        }
+    } else {
+        // Redirect to home if trackingId is not available in the URL
+        window.location.href = "/";
+    }
+});
+
+function initMap() {
+      // const currentLocation = parcel.currentLocation || "miami" // Or set dynamically
 
         const geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ address: locationName }, (results, status) => {
+        geocoder.geocode({ address: currentLocation }, (results, status) => {
             if (status === "OK") {
                 const map = new google.maps.Map(document.getElementById("map"), {
                     center: results[0].geometry.location,
@@ -914,27 +929,123 @@ senderLocation.innerHTML =  capitalizeFirstLetter(parcel.senderLocation) || "N/A
                 new google.maps.Marker({
                     position: results[0].geometry.location,
                     map,
-                    title: locationName
+                    title: currentLocation
                 });
             } else {
                 console.error("Geocoding failed: " + status);
             }
         });
     }
+</script> -->
+<script>
+  // Define currentLocation globally so initMap can access it
+  let currentLocation = "miami"; // default fallback
 
+  document.addEventListener("DOMContentLoaded", async function () {
+      const trackingId = window.location.hash.slice(1);
+      console.log("Tracking ID:", trackingId);
 
-        } catch (error) {
-            console.error("There was a problem with the fetch operation:", error);
-            // Optionally, show a message to the user if there's an error
-            alert("Failed to load tracking information. Please try again later.");
-        }
-    } else {
-        // Redirect to home if trackingId is not available in the URL
-        window.location.href = "/";
-    }
-});
+      // Your element selectors...
+      const receiverNameElement = document.getElementById("recivername");
+      const receiverEmailElement = document.getElementById("receiveremail2");
+      const createdDateElement = document.getElementById("created-date");
+      const uniqueIdElement = document.getElementById("uniqueid");
+      const senderNameElement = document.getElementById("sendername");
+      const senderEmailElement = document.getElementById("senderemail2");
+      const arrivalDateElement = document.getElementById("arrival-date2");
+      const statusElement = document.getElementById("status-new");
+      const designationElement = document.getElementById("designation-id");
+      const lastLocateElement = document.getElementById("last-locate");
+      const currentLocateElement = document.getElementById("current-locate");
+      const milesElement = document.getElementById("miles");
+      const typeOfFreightElement = document.getElementById("typeof-frieght");
+      const currentIdElement = document.getElementById("current-id");
+      const weightElement = document.getElementById("weight-output");
+      const phoneNumber = document.getElementById("receivernumber");
+      const senderLocation = document.getElementById("sender-address3");
+      const greetingElement = document.getElementById("greeting");
+
+      function capitalizeFirstLetter(str) {
+          if (!str) return "";
+          return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+      }
+
+      if (trackingId) {
+          try {
+              const url = `https://kingsway-backend-1.onrender.com/api/v1/customer/parcel/${trackingId}`;
+              const response = await fetch(url);
+
+              if (!response.ok) {
+                  throw new Error("Network response was not ok");
+              }
+
+              const data = await response.json();
+              console.log("Response data:", data);
+
+              const parcel = data.data;
+
+              // Update your HTML elements
+              receiverNameElement.innerHTML = capitalizeFirstLetter(parcel.receiverName) || "N/A";
+              receiverEmailElement.innerHTML = parcel.receiverEmail || "N/A";
+              createdDateElement.innerHTML = parcel.freightDate || "N/A";
+              uniqueIdElement.innerHTML = parcel.orderId || "N/A";
+              senderNameElement.innerHTML = capitalizeFirstLetter(parcel.senderName) || "N/A";
+              senderEmailElement.innerHTML = parcel.email || "N/A";
+              arrivalDateElement.innerHTML = parcel.arrivalDate || "N/A";
+              statusElement.innerHTML = capitalizeFirstLetter(parcel.status) || "N/A";
+              designationElement.innerHTML = capitalizeFirstLetter(parcel.parcelsDesignation) || "N/A";
+              lastLocateElement.innerHTML = capitalizeFirstLetter(parcel.lastLocation) || "N/A";
+              currentLocateElement.innerHTML = capitalizeFirstLetter(parcel.currentLocation) || "N/A";
+              milesElement.innerHTML = `${parcel.remainingDistanceInMiles} (M)` || "N/A";
+              typeOfFreightElement.innerHTML = capitalizeFirstLetter(parcel.freightType) || "N/A";
+              currentIdElement.innerHTML = capitalizeFirstLetter(parcel.couriersMessage) || "N/A";
+              weightElement.innerHTML = `${parcel.parcelWeight} kg` || "N/A";
+              phoneNumber.innerHTML = parcel.phoneNumber;
+              senderLocation.innerHTML = capitalizeFirstLetter(parcel.senderLocation) || "N/A";
+              greetingElement.innerHTML = `Hello, ${capitalizeFirstLetter(parcel.receiverName) || "N/A"}`;
+
+              // Update the global currentLocation
+              currentLocation = parcel.currentLocation || "miami";
+
+          } catch (error) {
+              console.error("There was a problem with the fetch operation:", error);
+              alert("Failed to load tracking information. Please try again later.");
+          }
+      } else {
+          window.location.href = "/";
+      }
+  });
+
+  // Move initMap OUTSIDE and attach it to window
+  function initMap() {
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address: currentLocation }, (results, status) => {
+          if (status === "OK") {
+              const map = new google.maps.Map(document.getElementById("map"), {
+                  center: results[0].geometry.location,
+                  zoom: 14,
+                  mapTypeId: "roadmap"
+              });
+
+              new google.maps.Marker({
+                  position: results[0].geometry.location,
+                  map,
+                  title: currentLocation
+              });
+          } else {
+              console.error("Geocoding failed: " + status);
+          }
+      });
+  }
+  window.initMap = initMap; // make sure initMap is globally accessible
 </script>
-<script src="//code.jivosite.com/widget/2eeIucJDn4" async></script>
+
+<!-- Google Maps API Script -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+
+<!-- <script src="//code.jivosite.com/widget/2eeIucJDn4" async></script> -->
 <script src="admin.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
   </body>
 </html>
